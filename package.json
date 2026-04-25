@@ -4,8 +4,11 @@
   "description": "",
   "main": "api/server.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "node server.js",
     "dev": "nodemon server.js",
+=======
+>>>>>>> cd3ae59 (Upload of city explorer app)
     "tailwind": "npx @tailwindcss/cli -i ./public/input.css -o ./public/output.css --watch"
   },
   "keywords": [],
@@ -17,7 +20,10 @@
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
+<<<<<<< HEAD
     "mongodb": "^7.2.0",
+=======
+>>>>>>> cd3ae59 (Upload of city explorer app)
     "mongoose": "^9.5.0",
     "superagent": "^10.3.0",
     "tailwindcss": "^4.2.2"
