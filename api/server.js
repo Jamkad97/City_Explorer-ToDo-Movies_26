@@ -30,25 +30,6 @@ app.use(express.static('./public'));
 const todosRouter = require('../routes/todos');
 app.use("/api/todos", todosRouter);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 app.get('/location', locationHandler);
 
 async function locationHandler(req, res) {
@@ -92,7 +73,7 @@ async function locationHandler(req, res) {
                 lat: myLocation.latitude,
                 lon: myLocation.longitude,
                 appid: process.env.OPENWEATHER_KEY,
-                units: 'imperial', // Will return fahrenheit
+                units: 'imperial', // Will return Fahrenheit
             });
 
         const weatherJson = openWeatherResponse.body;
