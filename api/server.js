@@ -201,8 +201,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static('./public'));
 const todosRouter = require('../routes/todos');
 app.use("/api/todos", todosRouter);
-
 app.get('/location', locationHandler);
+app.get('/movies', movieHandler);
 
 async function locationHandler(req, res) {
     try {
@@ -337,8 +337,81 @@ const MovieTheater = function (json) {
     this.postcode = json.postcode;
 }
 
+function Movie(json) {
+    this.title = json.title;
+    this.overview = json.overview;
+    this.poster_path = json.poster_path
+    this.release_date = json.release_date
+    this.genres = json.genres;
+}
+
 // App listener
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
+<<<<<<< HEAD
 >>>>>>> cd3ae59 (Upload of city explorer app)
 module.exports = app;
+=======
+module.exports = app;
+
+// Movie Explorer
+
+async function movieHandler(req, res) {
+    try {
+        const search = req.query.search;
+
+        if (!search) {
+            res.status(300).send('Please enter a valid movie search');
+            return;
+        }
+
+        const url = `https://api.themoviedb.org/3/search/movie?query=${search}`;
+        
+        const movieResponse = await superagent
+            .get(url)
+            .set('Authorization', `Bearer ${process.env.OMDB_READ_ACCESS_TOKEN}`)
+            .set('Content-Type', 'application/json')
+            
+        console.log(movieResponse.body);
+
+        const movieArr = movieResponse.body.results.map(movie => {
+        const genreNames = (movie.genre_ids || [])
+        .map(id => genreLookup[id])
+        .filter(Boolean) 
+        .join(", ");
+
+    movie.genres = genreNames;
+
+    return new Movie(movie);
+});
+
+        res.status(200).send({movieData: movieArr});
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Movie lookup Failed');
+    }
+}
+
+async function loadGenres() {
+    try {
+        const url = "https://api.themoviedb.org/3/genre/movie/list";
+
+        const genreResponse = await superagent
+            .get(url)
+            .set("Authorization", `Bearer ${process.env.OMDB_READ_ACCESS_TOKEN}`)
+            .set("Content-Type", "application/json");
+
+        genreLookup = {};
+        genreResponse.body.genres.forEach(g => {
+            genreLookup[g.id] = g.name;
+        });
+
+        console.log("Loaded TMDB genres:", genreLookup);
+
+    } catch (err) {
+        console.error("Failed to load genres:", err);
+    }
+}
+loadGenres();
+
+>>>>>>> 52f6216 (Final update)
