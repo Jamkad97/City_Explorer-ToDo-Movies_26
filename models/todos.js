@@ -16,23 +16,4 @@ const todoSchema = new mongoose.Schema({
 // Step 2: Define the model by using the database connection to request the collection, passing the schema
 const Todos = todoConnection.model('todos', todoSchema);
 // Step 3: Export the model
-const mongoose = require('mongoose');
-const { todoConnection} = require('../config/db');
-
-// Step 1: Define the schema
-const todoSchema = new mongoose.Schema({
-    title: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    completed: {
-        type: Boolean,
-        required: true
-    }
-});
-// Step 2: Define the model by using the database connection to request the collection, passing the schema
-const Todos = todoConnection.model('todos', todoSchema);
-// Step 3: Export the model
-
 module.exports = Todos;
