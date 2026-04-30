@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Application dependencies
 const express = require('express');
 require('dotenv').config();
@@ -14,7 +13,7 @@ let origin = '';
 if (env === 'development') {
     origin = `http://localhost:${port}`;
 } else {
-    origin = 'https://city-explorer-26.vercel.app/';
+    origin = 'cityexplorer-todo-movies26-hbmg0x36q-jamkad97s-projects.vercel.app';
 }
 app.use(cors({
     origin: origin,
@@ -169,7 +168,6 @@ const MovieTheater = function (json) {
 // App listener
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
-=======
 // Application dependencies
 const express = require('express');
 require('dotenv').config();
@@ -347,13 +345,8 @@ function Movie(json) {
 
 // App listener
 app.listen(port, () => console.log(`Listening on port ${port}`));
-
-<<<<<<< HEAD
->>>>>>> cd3ae59 (Upload of city explorer app)
 module.exports = app;
-=======
 module.exports = app;
-
 // Movie Explorer
 
 async function movieHandler(req, res) {
@@ -414,4 +407,4 @@ async function loadGenres() {
 }
 loadGenres();
 
->>>>>>> 52f6216 (Final update)
+module.exports = app;

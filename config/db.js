@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const mongoose = require('mongoose');
 const todoConnection = mongoose.createConnection(process.env.MONGODB_TODOS);
 
@@ -20,7 +19,6 @@ const connectAll = async () => {
     }
 };
 
-=======
 const mongoose = require('mongoose');
 const todoConnection = mongoose.createConnection(process.env.MONGODB_TODOS);
 
@@ -42,5 +40,4 @@ const connectAll = async () => {
     }
 };
 
->>>>>>> cd3ae59 (Upload of city explorer app)
 module.exports = {connectAll, todoConnection};
