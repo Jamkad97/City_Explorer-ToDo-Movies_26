@@ -13,7 +13,7 @@ let origin = '';
 if (env === 'development') {
     origin = `http://localhost:${port}`;
 } else {
-    origin = 'cityexplorer-todo-movies26-hbmg0x36q-jamkad97s-projects.vercel.app';
+    origin = 'http://cityexplorer-todo-movies26-hbmg0x36q-jamkad97s-projects.vercel.app';
 }
 app.use(cors({
     origin: origin,

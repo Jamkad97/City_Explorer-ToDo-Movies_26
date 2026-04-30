@@ -4,19 +4,20 @@
   "description": "",
   "main": "api/server.js",
   "scripts": {
-    "tailwind": "npx tailwindcss -i ./public/input.css -o ./public/output.css --watch"
+    "tailwind": "npx @tailwindcss/cli -i ./public/input.css -o ./public/output.css --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@tailwindcss/cli": "^4.2.2",
     "cors": "^2.8.6",
-    "dotenv": "^16.4.5",
+    "dotenv": "^17.3.1",
     "express": "^5.2.1",
     "mongoose": "^9.5.0",
     "superagent": "^10.3.0",
-    "tailwindcss": "3.4.3"
+    "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
